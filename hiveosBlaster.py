@@ -26,7 +26,7 @@ cmdfile = "{0}".format(args.cmdfile)
 
 # Device Credentials
 user = 'admin'
-passwd = 'c0bra42b'
+passwd = 'Extreme123!'
 
 if not os.path.isdir(PATH+'/log'):
     os.makedirs(PATH+'/log')
@@ -57,14 +57,11 @@ def ap_ssh(ip,cmds, device, mp_queue):
         outputs = []
         time.sleep(1)
         resp = chan.recv(9999)	
-        chan.send('enable\n')
+        chan.send('console page 0\n')
         time.sleep(1)
         resp = chan.recv(9999)
         lines = resp.splitlines()
         apname = lines[-1][:-1]
-        chan.send('no page\n')
-        time.sleep(1)
-        resp = chan.recv(9999)
 
         for cmd in cmds:
             sys.stdout.flush()
@@ -107,8 +104,13 @@ def main():
                     continue	
             else:
                 ip = device
-                dns = socket.gethostbyaddr(ip)
-                device = dns[0]
+                try:
+                    dns = socket.gethostbyaddr(ip)
+                    device = dns[0]
+                    print("DNS for {} is {}".format(ip, device))
+                except:
+                    print("The DNS for {} was not found".format(ip))
+
             try:
                 print("connecting to", device)
                 socket.inet_aton(ip)

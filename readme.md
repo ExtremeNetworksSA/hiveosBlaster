@@ -1,5 +1,5 @@
-# Wing 5 Blaster
-## wing5Blaster.py
+# Hive OS Blaster
+## hiveOSBlaster.py
 ### Purpose
 This script with take a list of device IP Addresses or DNS names and a list of commands. An ssh session will be opened with each device and then run each of the commands in the command list. A log file will be created in a log directory for each device and the responses for each of the commands will be appended to the file.
 
@@ -25,7 +25,7 @@ ap-100.log
 #### entering the device and cmd files
 When running the script from terminal after entering the script name add the name of the device file and then the name of the command file
 ```
-./wing5Blaster.py APs.txt cmd.txt
+./hiveOSBlaster.py APs.txt cmd.txt
 ```
 
 ### Requirements
