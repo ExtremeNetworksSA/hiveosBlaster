@@ -75,16 +75,16 @@ def ap_ssh(ip,cmds, device, mp_queue):
         file = open(PATH+"/log/"+devicename+".log", 'a')
         file.write("*******************************\n" + device + "("+ip+")\n"+today+"\n*******************************\n\n")
         for line in outputs:
-        	file.write(line+'\n')
+            file.write(line+'\n')
         file.write("\n\n")
         file.close()
     ssh.close()
 
 def main():
     with open(ipfile, 'r') as f:
-    	ips = f.read().splitlines()
+        ips = f.read().splitlines()
     with open(cmdfile, 'r') as f:
-    	cmds = f.read().splitlines()
+        cmds = f.read().splitlines()
 
 
     sizeofbatch = 50
