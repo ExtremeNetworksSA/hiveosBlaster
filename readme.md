@@ -30,5 +30,5 @@ When running the script from terminal after entering the script name add the nam
 
 ### Requirements
 Python 3.6 or higher is recommended for this script.
-The python paramiko module will need to be installed. If pip is installed, this can be done with pip install paramiko. 
+The python paramiko module will need to be installed. If pip is installed, this can be done with 'pip install paramiko'. 
 The needed modules are listed in the requirements.txt file and can be installed from there.
