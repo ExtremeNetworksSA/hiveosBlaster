@@ -61,7 +61,7 @@ def ap_ssh(ip,cmds, device, mp_queue):
         time.sleep(1)
         resp = chan.recv(9999)
         lines = resp.splitlines()
-        apname = lines[-1][:-1]
+        apname = lines[-1][:-1].decode('ascii','ignore')
 
         for cmd in cmds:
             sys.stdout.flush()
@@ -71,9 +71,8 @@ def ap_ssh(ip,cmds, device, mp_queue):
                 change = chan.recv(9999)
                 outputs += (change.decode('ascii','ignore').splitlines())
             outputs = outputs[:-1]
-        devicename = device.split(".")[0]
-        file = open(PATH+"/log/"+devicename+".log", 'a')
-        file.write("*******************************\n" + device + "("+ip+")\n"+today+"\n*******************************\n\n")
+        file = open(PATH+"/log/"+apname+".log", 'a')
+        file.write("*******************************\n" + apname + "("+ip+")\n"+today+"\n*******************************\n\n")
         for line in outputs:
             file.write(line+'\n')
         file.write("\n\n")
@@ -124,7 +123,7 @@ def main():
                 p.join()
                 p.terminate()
             except:
-                print("error occured in thread")
+                print("error occurred in thread")
         mp_queue.put('STOP')
         
 
