@@ -52,7 +52,11 @@ ap-100.log
 
 
 ## Running the Script
-#### make script executable
+the script can be ran with the following command.
+```
+python hiveOSBlaster.py APs.txt cmd.txt
+```
+#### make script executable (MacOs or Linux)
 ```
 chmod +x hiveOSBlaster.py
 ```
